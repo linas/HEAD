@@ -80,14 +80,15 @@ double degreeof(double x, double y)
                 }
                 else
                 {
-                    degreeHandler[i][3]=1+ (degreeHandler[i][3]/(turnaround/0.03846)); // average time
-                    passDeg=degreeHandler[i][3];
-                    degreeHandler[i][4] = timel;
+                if(delay<=0.25){  degreeHandler[i][3]+= (0.03846/turnaround); } //checking for exsitance of salience at this point
+                else { degreeHandler[i][3]=1+ (degreeHandler[i][3]/(turnaround/0.03846));}
+                passDeg=degreeHandler[i][3];
+                degreeHandler[i][4] = timel;
                 }
 
-                    degreeHandler[i][2] = timel;
-                    cout<<x<<","<<y<<"  Category "<<degreeHandler[i][0]<<","<<degreeHandler[i][1]<<" Delay: "<<delay<<" Degree: "<<degreeHandler[i][3]<<endl;
-                    break;
+                degreeHandler[i][2] = timel;
+                cout<<x<<","<<y<<"  Category "<<degreeHandler[i][0]<<","<<degreeHandler[i][1]<<" Delay: "<<delay<<" Degree: "<<degreeHandler[i][3]<<endl;
+                break;
             }
             else { continue;  }
         }
